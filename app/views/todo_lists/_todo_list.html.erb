@@ -1,12 +1,29 @@
 <div id="<%= dom_id todo_list %>">
-  <p>
-    <strong>Name:</strong>
+  <h1>
     <%= todo_list.name %>
-  </p>
+  </h1>
 
   <p>
-    <strong>Description:</strong>
     <%= todo_list.description %>
   </p>
 
+  <h3>Items</h3>
+  <table id="todo_items" class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Description</th>
+        <th scope="col">Done?</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% todo_list.todo_items.each_with_index do |todo_item, index| %>
+      <tr>
+        <th scope="row"><%= index %></th>
+        <td><%= todo_item.description %></td>
+        <td><%= todo_item.done %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
 </div>
